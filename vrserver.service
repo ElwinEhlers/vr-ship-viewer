@@ -1,0 +1,14 @@
+[Unit]
+Description=VR Ship WebXR Server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /home/docker/vr/server.js
+WorkingDirectory=/home/docker/vr
+Restart=always
+RestartSec=5
+User=root
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

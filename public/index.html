@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VR Schiff</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://unpkg.com/networked-aframe@^0.12.0/dist/networked-aframe.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #hud {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: sans-serif;
+      font-size: 13px;
+      z-index: 999;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">WASD = Laufen | Maus = Schauen | VR-Button rechts unten für Quest 3</div>
+
+  <a-scene
+    networked-scene="serverURL:/;app:default;room:schiff;adapter:socketio;debug:false"
+    renderer="antialias:true"
+    vr-mode-ui="enabled:true">
+
+    <a-assets>
+      <template id="avatar-template">
+        <a-entity>
+          <a-sphere radius="0.3" color="#FF4444" material="roughness:0.5;metalness:0.1"></a-sphere>
+        </a-entity>
+      </template>
+    </a-assets>
+
+    <!-- Himmel -->
+    <a-sky color="#87CEEB"></a-sky>
+
+    <!-- Beleuchtung -->
+    <a-light type="ambient" intensity="0.6"></a-light>
+    <a-light type="directional" position="2 4 3" intensity="0.8" cast-shadow="true"></a-light>
+
+    <!-- Schiffsmodell -->
+    <a-entity gltf-model="/schiff.glb" position="0 0 0" scale="1 1 1"></a-entity>
+
+    <!-- Unsichtbarer Boden für Kollision / movement-controls -->
+    <a-plane
+      rotation="-90 0 0"
+      width="60"
+      height="20"
+      position="0 0 0"
+      visible="false"
+      material="side:double">
+    </a-plane>
+
+    <!-- Wasser -->
+    <a-plane
+      rotation="-90 0 0"
+      width="300"
+      height="300"
+      position="0 -0.1 0"
+      color="#1a7abf"
+      opacity="0.85"
+      material="side:double">
+    </a-plane>
+
+    <!-- Spieler-Rig -->
+    <a-entity
+      id="rig"
+      networked="template:#avatar-template;attachTemplateToLocal:false"
+      movement-controls="fly:false;speed:0.08"
+      position="0 1.6 15">
+      <a-entity camera look-controls="pointerLockEnabled:true">
+        <!-- Crosshair -->
+        <a-ring
+          radius-inner="0.01"
+          radius-outer="0.015"
+          color="white"
+          material="shader:flat"
+          position="0 0 -0.5">
+        </a-ring>
+      </a-entity>
+    </a-entity>
+
+  </a-scene>
+</body>
+</html>
