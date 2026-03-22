@@ -4,6 +4,13 @@ WebXR Multi-User VR-Anwendung zum virtuellen Begehen eines 3D-Schiffsmodells (26
 
 **Live:** https://vr.bhv.ipv64.net
 
+## Contributors
+
+| Name | Rolle |
+|---|---|
+| [ElwinEhlers](https://github.com/ElwinEhlers) | Projektidee, Server-Setup, 3D-Modell |
+| [Claude Sonnet 4.6](https://claude.ai) (Anthropic) | Architektur, Code, Dokumentation |
+
 ---
 
 ## Architektur
