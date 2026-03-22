@@ -75,6 +75,9 @@ sudo systemctl start vrserver
 
 # 4. Status prüfen
 sudo systemctl status vrserver
+
+# 5. HTTP-Erreichbarkeit testen (sollte 200 zurückgeben)
+curl -s -o /dev/null -w "%{http_code}" http://localhost:3000
 ```
 
 ---
