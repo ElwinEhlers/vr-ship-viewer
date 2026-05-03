@@ -95,7 +95,7 @@ Falls das Modell noch als OBJ vorliegt, zuerst konvertieren:
 
 ```bash
 npm install -g obj2gltf
-obj2gltf -i LobsterTail.obj -o schiff.glb
+obj2gltf -i schiff.obj -o schiff.glb
 ```
 
 Nach dem Upload wird das Modell sofort in der Szene sichtbar (kein Server-Neustart nötig).
