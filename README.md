@@ -106,7 +106,7 @@ Nach dem Upload wird das Modell sofort in der Szene sichtbar (kein Server-Neusta
 
 | Einstellung | Wert |
 |---|---|
-| Domain | `vr.bhv.ipv64.net` |
+| Domain | `vr.example.com` |
 | Forward Hostname/IP | `localhost` |
 | Forward Port | `3000` |
 | Websockets Support | **ON** (Pflicht für Multi-User) |
@@ -148,7 +148,7 @@ Alle Nutzer, die die URL gleichzeitig öffnen, landen im selben Raum `schiff` un
 ## Meta Quest 3
 
 1. Meta Browser öffnen
-2. URL eingeben: `https://vr.bhv.ipv64.net`
+2. URL eingeben: `https://vr.example.com`
 3. Seite lädt normal im Browser
 4. VR-Button (rechts unten) antippen → Immersive Mode startet
 5. Controller-Bewegung wird automatisch für Navigation genutzt
