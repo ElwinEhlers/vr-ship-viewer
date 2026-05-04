@@ -2,7 +2,7 @@
 
 WebXR Multi-User VR-Anwendung zum virtuellen Begehen eines 3D-Schiffsmodells (26m x 5m) im Browser oder mit einer Meta Quest 3. Mehrere Nutzer sehen sich gegenseitig als Avatare in Echtzeit.
 
-**Live:** https://vr.bhv.ipv64.net
+**Live:** https://vr.example.com
 
 ## Contributors
 
@@ -88,7 +88,7 @@ Das Schiffsmodell (`schiff.glb`) wird nicht im Repository gespeichert und muss m
 
 ```bash
 # Von Windows/Mac auf den Server (SCP)
-scp schiff.glb root@116.203.177.100:/home/docker/vr/public/schiff.glb
+scp schiff.glb root@your.ip:/home/docker/vr/public/schiff.glb
 ```
 
 Falls das Modell noch als OBJ vorliegt, zuerst konvertieren:
